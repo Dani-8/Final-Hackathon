@@ -3,14 +3,18 @@
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
-  "scripts": {},
   "keywords": [],
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
+  "type": "module",
   "dependencies": {
     "dotenv": "^17.4.2",
     "express": "^5.2.1",
-    "mongoose": "^9.7.4"
+    "mongoose": "^9.7.4",
+    "nodemon": "^3.1.14"
   }
 }
