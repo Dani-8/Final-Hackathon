@@ -1,8 +1,11 @@
 export function formatDate(dateString) {
     if (!dateString) return 'Never';
+
     try {
         const d = new Date(dateString);
+
         if (isNaN(d.getTime())) return 'Never';
+
         return d.toLocaleDateString('en-US', {
             year: 'numeric',
             month: 'short',
@@ -16,9 +19,12 @@ export function formatDate(dateString) {
 
 export function formatDateTime(dateString) {
     if (!dateString) return 'N/A';
+
     try {
         const d = new Date(dateString);
+
         if (isNaN(d.getTime())) return 'N/A';
+
         return d.toLocaleString('en-US', {
             year: 'numeric',
             month: 'short',
