@@ -1,4 +1,4 @@
-import { apiResponse } from '../utils/apiResponse.js';
+import { apiResponse } from '../utils/apiResponse.js'
 
 export function roleMiddleware(allowedRoles = []) {
     return (req, res, next) => {
@@ -13,4 +13,5 @@ export function roleMiddleware(allowedRoles = []) {
         next()
     }
 }
+
 export default roleMiddleware

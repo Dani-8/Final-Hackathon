@@ -26,4 +26,5 @@ export function rateLimiter({ windowMs = 60 * 1000, max = 30, message = 'Too man
         next()
     }
 }
+
 export default rateLimiter
