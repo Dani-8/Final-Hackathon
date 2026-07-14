@@ -21,18 +21,18 @@ export const authService = {
         })
 
         if (res.success && res.data.token) {
-            localStorage.setItem('token', res.data.token);
+            localStorage.setItem('token', res.data.token)
         }
-        
+
         return res.data
     },
 
     getMe: async () => {
-        const res = await request('/auth/me');
+        const res = await request('/auth/me')
         return res.data.user;
     },
 
     logout: () => {
-        localStorage.removeItem('token');
+        localStorage.removeItem('token')
     }
-};
+}
