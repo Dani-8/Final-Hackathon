@@ -9,3 +9,5 @@ export function errorHandler(err, req, res, next) {
 
     return apiResponse.error(res, message, status, errors);
 }
+
+export default errorHandler

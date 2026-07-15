@@ -1,4 +1,5 @@
 import React from 'react'
+import MainLogo from '../assets/Main_LOGO2.png'
 import { Link, Outlet, useNavigate, useLocation } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext.jsx'
 import { AlertTriangle, LogOut, Wrench, LayoutDashboard } from 'lucide-react'
@@ -13,7 +14,7 @@ export function TechnicianLayout() {
 
     const handleLogout = () => {
         logout()
-        
+
         navigate('/login')
     }
 
@@ -26,15 +27,10 @@ export function TechnicianLayout() {
         <div id="technician-layout-container" className="min-h-screen bg-slate-50 flex flex-col md:flex-row">
             {/* Sidebar navigation */}
             <aside className="w-full md:w-64 bg-slate-900 text-slate-300 flex-shrink-0 flex flex-col border-r border-slate-800">
-                <div className="p-6 border-b border-slate-800 flex items-center gap-3">
-                    <div className="bg-indigo-600 text-white p-2 rounded-lg">
-                        <Wrench className="w-6 h-6" />
-                    </div>
-
-                    <div>
-                        <h1 className="font-display font-bold text-lg text-white leading-tight">MaintainIQ</h1>
-                        <span className="text-[10px] uppercase font-mono tracking-wider text-teal-400">Technician Desk</span>
-                    </div>
+                <div className="p-6 border-b border-slate-800">
+                    {/* <div className="bg-white p-2 rounded-xl"> */}
+                        <img src={MainLogo} alt="MaintainIQ logo" className="w-full object-contain" />
+                    {/* </div> */}
                 </div>
 
 
@@ -48,8 +44,8 @@ export function TechnicianLayout() {
                                 key={item.path}
                                 to={item.path}
                                 className={`flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-medium transition-all ${isActive
-                                        ? 'bg-indigo-600 text-white'
-                                        : 'text-slate-400 hover:bg-slate-800/60 hover:text-slate-200'
+                                    ? 'bg-indigo-600 text-white'
+                                    : 'text-slate-400 hover:bg-slate-800/60 hover:text-slate-200'
                                     }`}
                             >
                                 <Icon className="w-4 h-4" />

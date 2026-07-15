@@ -1,4 +1,6 @@
 import React from 'react'
+import MainLogo from '../assets/Main_LOGO.png'
+import MainLogo2 from '../assets/Main_LOGO2.png'
 import { Link, Outlet, useLocation } from 'react-router-dom'
 import { Wrench, Shield, Search, Info } from 'lucide-react'
 // ================================================================
@@ -16,14 +18,11 @@ export function PublicLayout() {
             <header className="bg-white border-b border-slate-200/80 sticky top-0 z-50 shadow-sm">
                 <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
                     <Link to="/" className="flex items-center gap-3">
-                        <div className="bg-indigo-600 text-white p-2 rounded-lg shadow-sm">
-                            <Wrench className="w-5 h-5" />
+                        {/* <div className="p-6 border-b border-slate-800"> */}
+                        <div className="">
+                            <img src={MainLogo} alt="MaintainIQ logo" className="w-45 object-contain" />
                         </div>
-
-                        <div>
-                            <h1 className="font-display font-bold text-lg text-slate-900 tracking-tight leading-none">MaintainIQ</h1>
-                            <span className="text-[9px] uppercase font-mono tracking-wider text-slate-500">QR Maintenance Hub</span>
-                        </div>
+                        {/* </div> */}
                     </Link>
 
 
@@ -55,26 +54,21 @@ export function PublicLayout() {
 
 
             {/* Footer bar */}
-            <footer className="bg-indigo-950 text-slate-300 border-t border-indigo-900 pt-16 pb-12">
+            <footer className="bg-indigo-950 text-slate-300 border-t border-indigo-900 pt-16 pb-12 mt-30">
                 <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-indigo-900/60">
 
                     {/* Column 1: Brand details */}
                     <div className="md:col-span-5 space-y-4">
-                        <div className="flex items-center gap-3">
-                            <div className="bg-indigo-600 text-white p-2.5 rounded-xl shadow-md border border-indigo-500/30">
-                                <Wrench className="w-5 h-5" />
-                            </div>
-
-                            <div>
-                                <h3 className="font-display font-black text-lg text-white tracking-tight leading-none">MaintainIQ</h3>
-                                <span className="text-[9px] uppercase font-mono tracking-widest text-indigo-300">QR Dispatch Engine</span>
-                            </div>
+                        <div className="pb-6 border-b border-slate-800 w-fit">
+                            {/* <div className="bg-white p-2 rounded-xl"> */}
+                                <img src={MainLogo2} alt="MaintainIQ logo" className="w-55 object-contain" />
+                            {/* </div> */}
                         </div>
-                        
+
                         <p className="text-xs text-slate-400 font-medium leading-relaxed max-w-sm">
                             Bridge the physical-to-digital gap in property maintenance. Tag mechanical and electrical assets with secure QR codes, automate priority dispatches with Gemini AI, and track tickets to resolution seamlessly.
                         </p>
-                        
+
                         <div className="flex items-center gap-2 pt-2 text-[10px] bg-indigo-900/40 border border-indigo-900/80 p-2.5 rounded-lg max-w-xs text-indigo-200">
                             <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shrink-0" />
                             <span className="font-semibold">Facility dispatch engines online in 4 sectors</span>

@@ -1,0 +1,530 @@
+{
+  "users": [
+    {
+      "_id": "u_admin_1",
+      "name": "System Admin",
+      "email": "admin@maintainiq.com",
+      "passwordHash": "$2b$10$GzpYkF50Qo5x2GwPPIoCfuCyrjuCeqgC0gbY0MzLyk5ggnZkHL86W",
+      "role": "admin",
+      "createdAt": "2026-01-01T00:00:00.000Z"
+    },
+    {
+      "_id": "u_tech_1",
+      "name": "John Technician",
+      "email": "tech@maintainiq.com",
+      "passwordHash": "$2b$10$Fq79lkrOMDMG10s7cfW7/eWP.rQ.kZAHctefdcU7PGrdGMWHyiKgy",
+      "role": "technician",
+      "createdAt": "2026-01-01T00:00:00.000Z"
+    },
+    {
+      "_id": "u_23g0cyaup",
+      "createdAt": "2026-07-15T06:24:33.452Z",
+      "name": "Ali",
+      "email": "ali@a.com",
+      "passwordHash": "$2b$10$4lWxUsbzOrxR4vBS46/ZAe0CXlEdIvUcQMJmVL3vyQoPkCWajZxWu",
+      "role": "technician",
+      "specialty": "Plumbing"
+    },
+    {
+      "_id": "u_5ocavdi8a",
+      "createdAt": "2026-07-15T08:07:46.954Z",
+      "name": "Aliyan",
+      "email": "aliyan@a.com",
+      "passwordHash": "$2b$10$Bu2UdkN2v7zBqDvR9iywR.bFyShfBmpoTuOvs16169mNehCeSpvzm",
+      "role": "technician",
+      "specialty": "Electrical"
+    },
+    {
+      "_id": "u_wqj2gbn9h",
+      "createdAt": "2026-07-15T08:14:38.063Z",
+      "name": "Saad",
+      "email": "saad@a.com",
+      "passwordHash": "$2b$10$gHisgKyKLAZagVUFDhYPsudE110/XpIX4ZjjnpwMalY5x/7grcBxi",
+      "role": "technician",
+      "specialty": "IT Support"
+    },
+    {
+      "_id": "u_re3fqa407",
+      "createdAt": "2026-07-15T22:24:54.526Z",
+      "name": "Ahmed",
+      "email": "ahmed@a.com",
+      "passwordHash": "$2b$10$EuGYmC/sNeIW5QeNRgjof./fNhcEHMzzbIwLiOi8a.AcfpeHVytpC",
+      "role": "technician",
+      "specialty": "IT Support"
+    }
+  ],
+  "assets": [
+    {
+      "_id": "a_2ylv67nb4",
+      "assignedTechnician": "u_23g0cyaup",
+      "lastServiceDate": "2026-07-15",
+      "nextServiceDate": "2026-07-16",
+      "isRetired": false,
+      "createdAt": "2026-07-15T06:38:18.947Z",
+      "updatedAt": "2026-07-15T09:25:17.025Z",
+      "assetCode": "AST-2026-3TOYO1",
+      "name": "Chiller A & B",
+      "category": "Electrical",
+      "location": "Room 123",
+      "condition": "Poor",
+      "status": "Operational",
+      "publicUrlSlug": "ast-2026-3toyo1-chiller-a---b",
+      "qrCodeUrl": "data:image/png;base64,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",
+      "createdBy": "u_admin_1"
+    },
+    {
+      "_id": "a_qmrgp4veq",
+      "assignedTechnician": "u_5ocavdi8a",
+      "lastServiceDate": "2026-07-15",
+      "nextServiceDate": "2026-07-18",
+      "isRetired": false,
+      "createdAt": "2026-07-15T08:08:47.387Z",
+      "updatedAt": "2026-07-15T08:46:36.065Z",
+      "assetCode": "AST-2026-FC1GJ1",
+      "name": "Main Water Booster Pump",
+      "category": "Plumbing",
+      "location": "Basement Pump Room, Block B",
+      "condition": "Good",
+      "status": "Issue Reported",
+      "publicUrlSlug": "ast-2026-fc1gj1-main-water-booster-pump",
+      "qrCodeUrl": "data:image/png;base64,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",
+      "createdBy": "u_admin_1"
+    },
+    {
+      "_id": "a_zdduqpr8s",
+      "assignedTechnician": "u_wqj2gbn9h",
+      "lastServiceDate": "2026-07-15",
+      "nextServiceDate": "2026-07-15",
+      "isRetired": false,
+      "createdAt": "2026-07-15T08:16:58.038Z",
+      "updatedAt": "2026-07-15T08:46:29.317Z",
+      "assetCode": "AST-2026-D695SS",
+      "name": "Core Network Switch - Cisco Catalyst 9300",
+      "category": "IT Infrastructure",
+      "location": "Server Room, 2nd Floor, Main Office",
+      "condition": "Good",
+      "status": "Issue Reported",
+      "publicUrlSlug": "ast-2026-d695ss-core-network-switch---cisco-catalyst-9300",
+      "qrCodeUrl": "data:image/png;base64,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",
+      "createdBy": "u_admin_1"
+    }
+  ],
+  "issues": [
+    {
+      "_id": "i_wh2nr2raz",
+      "assignedTechnician": "u_23g0cyaup",
+      "evidenceUrls": [],
+      "aiSuggested": {
+        "title": "Severe Water Leakage from Chiller A & B",
+        "category": "HVAC / Plumbing",
+        "priority": "critical",
+        "causes": [
+          "Blocked or clogged condensate drain line",
+          "Cracked or overflowing condensate drain pan",
+          "Compromised internal water pump or pipe seals",
+          "Evaporator coil freezing and subsequent rapid thawing"
+        ],
+        "checks": [
+          "Inspect the immediate area around the chiller to locate the primary source of the leak.",
+          "Verify that leaking water is not in direct contact with nearby electrical connections, outlets, or the unit's power supply.",
+          "Visually check the external condensate line for obvious obstructions or kinks without dismantling any components.",
+          "Coordinate immediately with a qualified technician to safely isolate the unit and perform necessary repairs."
+        ]
+      },
+      "aiFieldsEdited": false,
+      "createdAt": "2026-07-15T06:41:06.902Z",
+      "updatedAt": "2026-07-15T07:30:04.140Z",
+      "issueNumber": "ISS-2026-21427",
+      "asset": "a_2ylv67nb4",
+      "title": "Severe Water Leakage from Chiller A & B",
+      "description": "it is leaking water so much\n",
+      "category": "HVAC / Plumbing",
+      "priority": "critical",
+      "status": "Maintenance In Progress",
+      "reporterName": "Smith",
+      "reporterContact": "20202020"
+    },
+    {
+      "_id": "i_dp4sbuzm8",
+      "assignedTechnician": "u_23g0cyaup",
+      "evidenceUrls": [],
+      "aiSuggested": {
+        "title": "Complete Operational Failure - Chiller A & B",
+        "category": "Electrical",
+        "priority": "critical",
+        "causes": [
+          "Electrical short circuit or tripped breaker due to the recently reported severe water leak",
+          "Safety interlock or emergency shutdown triggered by system sensors",
+          "Control board or main power supply failure"
+        ],
+        "checks": [
+          "Perform a visual inspection from a safe distance for any active water pooling or moisture near electrical connections",
+          "Check if the local display panel is powered on or displaying any error codes",
+          "Verify the status of the breaker in the main electrical panel without attempting to reset it",
+          "Ensure the unit is completely isolated and contact a qualified HVAC technician and electrician immediately"
+        ]
+      },
+      "aiFieldsEdited": false,
+      "createdAt": "2026-07-15T06:44:54.801Z",
+      "updatedAt": "2026-07-15T07:28:13.740Z",
+      "issueNumber": "ISS-2026-37026",
+      "asset": "a_2ylv67nb4",
+      "title": "Complete Operational Failure - Chiller A & B",
+      "description": "its not working at all!!\n",
+      "category": "Electrical",
+      "priority": "critical",
+      "status": "Waiting for Parts",
+      "reporterName": "ahmed",
+      "reporterContact": ""
+    },
+    {
+      "_id": "i_zmoiiwq1i",
+      "assignedTechnician": "u_5ocavdi8a",
+      "evidenceUrls": [
+        "http://localhost:3000/api/uploads/evidence-1784103135450-107043705.jpg"
+      ],
+      "aiSuggested": {
+        "title": "Water Ingress / Overhead Leak in Basement Pump Room",
+        "category": "Plumbing & Facilities",
+        "priority": "high",
+        "causes": [
+          "Slab or ceiling leak from overhead domestic water lines or drainage pipes.",
+          "External rainwater ingress leaking through structural cracks from the ground level above.",
+          "Heavy condensation pooling and dripping from uninsulated overhead cold water pipework."
+        ],
+        "checks": [
+          "Verify if water is dripping directly onto or near the Main Water Booster Pump or its electrical control panel.",
+          "Conduct a safe visual inspection of the ceiling and overhead pipes to identify the active drip source without touching any electrical components.",
+          "Deploy temporary containment, such as a bucket, to catch dripping water if it can be done safely and away from electrical hazards.",
+          "Inspect the ground level or floor directly above the basement pump room for signs of pooling water or drainage blockages.",
+          "Contact a certified plumber or structural maintenance technician to inspect the ceiling slab and overhead pipe integrity."
+        ]
+      },
+      "aiFieldsEdited": true,
+      "createdAt": "2026-07-15T08:12:27.966Z",
+      "updatedAt": "2026-07-15T08:46:36.063Z",
+      "issueNumber": "ISS-2026-75911",
+      "asset": "a_qmrgp4veq",
+      "title": "Water Ingress / Overhead Leak in Basement Pump Room",
+      "description": "roof is leaking ",
+      "category": "Plumbing",
+      "priority": "medium",
+      "status": "Assigned",
+      "reporterName": "Nicola",
+      "reporterContact": ""
+    },
+    {
+      "_id": "i_bo3lnl579",
+      "assignedTechnician": "u_wqj2gbn9h",
+      "evidenceUrls": [],
+      "aiSuggested": {
+        "title": "Core Network Switch Intermittent Connectivity & Amber Warning Status",
+        "category": "IT Infrastructure",
+        "priority": "high",
+        "causes": [
+          "Hardware component fault or internal power supply failure indicated by the amber warning LED.",
+          "Device overheating or poor ventilation within the 2nd-floor server room rack.",
+          "Network loop or broadcast storm causing extreme CPU utilization on the core switch.",
+          "Configuration mismatch or software instability following the recent asset updates."
+        ],
+        "checks": [
+          "Visually inspect the switch's front-panel status LEDs (such as SYS, RPS, and STAT) to decode the amber warning blink pattern.",
+          "Verify that the server room's air conditioning unit is operating correctly and the rack ambient temperature is normal.",
+          "Confirm that the switch's exhaust fans are spinning freely and are not blocked by dust or cables.",
+          "Check for any loose or incorrectly patched network cables that might be causing a physical loop.",
+          "Contact a qualified network administrator to safely log into the switch management console to review the system logs and active CPU/memory load."
+        ]
+      },
+      "aiFieldsEdited": false,
+      "createdAt": "2026-07-15T08:19:19.141Z",
+      "updatedAt": "2026-07-15T08:46:29.311Z",
+      "issueNumber": "ISS-2026-91338",
+      "asset": "a_zdduqpr8s",
+      "title": "Core Network Switch Intermittent Connectivity & Amber Warning Status",
+      "description": "The office internet has been disconnecting several times a day since yesterday. The network switch in the server room has amber warning lights blinking, and users on multiple floors are experiencing slow or no connectivity. Please inspect the switch and restore stable network service as soon as possible.",
+      "category": "IT Infrastructure",
+      "priority": "high",
+      "status": "Assigned",
+      "reporterName": "from earth",
+      "reporterContact": ""
+    }
+  ],
+  "maintenanceRecords": [],
+  "historyLogs": [
+    {
+      "_id": "h_vno9j5jaf",
+      "createdAt": "2026-07-15T06:38:18.948Z",
+      "asset": "a_2ylv67nb4",
+      "issue": null,
+      "actor": "System Admin",
+      "action": "Asset Created",
+      "description": "Asset Chiller A & B (Code: AST-2026-3TOYO1) was registered successfully."
+    },
+    {
+      "_id": "h_h9dab5dgj",
+      "createdAt": "2026-07-15T06:41:06.905Z",
+      "asset": "a_2ylv67nb4",
+      "issue": "i_wh2nr2raz",
+      "actor": "Smith",
+      "action": "Issue Reported",
+      "description": "Issue #ISS-2026-21427 reported: \"Severe Water Leakage from Chiller A & B\" (Priority: critical)."
+    },
+    {
+      "_id": "h_1l28xegqr",
+      "createdAt": "2026-07-15T06:41:06.907Z",
+      "asset": "a_2ylv67nb4",
+      "issue": "i_wh2nr2raz",
+      "actor": "System Auto",
+      "action": "Asset Status Auto-Updated",
+      "description": "Asset status set to 'Out of Service' due to reported issue."
+    },
+    {
+      "_id": "h_kc2axx1b6",
+      "createdAt": "2026-07-15T06:44:54.806Z",
+      "asset": "a_2ylv67nb4",
+      "issue": "i_dp4sbuzm8",
+      "actor": "ahmed",
+      "action": "Issue Reported",
+      "description": "Issue #ISS-2026-37026 reported: \"Complete Operational Failure - Chiller A & B\" (Priority: critical)."
+    },
+    {
+      "_id": "h_8wuocymp5",
+      "createdAt": "2026-07-15T06:44:54.806Z",
+      "asset": "a_2ylv67nb4",
+      "issue": "i_dp4sbuzm8",
+      "actor": "System Auto",
+      "action": "Asset Status Auto-Updated",
+      "description": "Asset status set to 'Out of Service' due to reported issue."
+    },
+    {
+      "_id": "h_h23dbn9o0",
+      "createdAt": "2026-07-15T07:23:56.774Z",
+      "asset": "a_2ylv67nb4",
+      "issue": null,
+      "actor": "System Admin",
+      "action": "Status Updated",
+      "description": "Asset status transitioned from 'Out of Service' to 'Under Maintenance'."
+    },
+    {
+      "_id": "h_ja3qskl3f",
+      "createdAt": "2026-07-15T07:23:56.781Z",
+      "asset": "a_2ylv67nb4",
+      "issue": null,
+      "actor": "System Admin",
+      "action": "Asset Updated",
+      "description": "Asset attributes were updated by administrator."
+    },
+    {
+      "_id": "h_6k5xa30ab",
+      "createdAt": "2026-07-15T07:25:23.669Z",
+      "asset": "a_2ylv67nb4",
+      "issue": "i_dp4sbuzm8",
+      "actor": "System Admin",
+      "action": "Technician Assigned",
+      "description": "Issue #ISS-2026-37026 assigned to technician: Ali."
+    },
+    {
+      "_id": "h_sqrehlegk",
+      "createdAt": "2026-07-15T07:25:30.500Z",
+      "asset": "a_2ylv67nb4",
+      "issue": "i_wh2nr2raz",
+      "actor": "System Admin",
+      "action": "Technician Assigned",
+      "description": "Issue #ISS-2026-21427 assigned to technician: Ali."
+    },
+    {
+      "_id": "h_3z8jfiaw2",
+      "createdAt": "2026-07-15T07:28:08.264Z",
+      "asset": "a_2ylv67nb4",
+      "issue": "i_dp4sbuzm8",
+      "actor": "System Auto",
+      "action": "Asset Status Synced",
+      "description": "Asset status set to 'Under Maintenance' to align with issue status of 'Maintenance In Progress'."
+    },
+    {
+      "_id": "h_eli67z75h",
+      "createdAt": "2026-07-15T07:28:08.265Z",
+      "asset": "a_2ylv67nb4",
+      "issue": "i_dp4sbuzm8",
+      "actor": "Ali",
+      "action": "Issue Status Updated",
+      "description": "Issue #ISS-2026-37026 status was changed from 'Assigned' to 'Maintenance In Progress'."
+    },
+    {
+      "_id": "h_pp5fjecm4",
+      "createdAt": "2026-07-15T07:28:13.743Z",
+      "asset": "a_2ylv67nb4",
+      "issue": "i_dp4sbuzm8",
+      "actor": "System Auto",
+      "action": "Asset Status Synced",
+      "description": "Asset status set to 'Under Maintenance' to align with issue status of 'Waiting for Parts'."
+    },
+    {
+      "_id": "h_23j94p6b5",
+      "createdAt": "2026-07-15T07:28:13.745Z",
+      "asset": "a_2ylv67nb4",
+      "issue": "i_dp4sbuzm8",
+      "actor": "Ali",
+      "action": "Issue Status Updated",
+      "description": "Issue #ISS-2026-37026 status was changed from 'Maintenance In Progress' to 'Waiting for Parts'."
+    },
+    {
+      "_id": "h_fhb8c01xs",
+      "createdAt": "2026-07-15T07:30:04.144Z",
+      "asset": "a_2ylv67nb4",
+      "issue": "i_wh2nr2raz",
+      "actor": "System Auto",
+      "action": "Asset Status Synced",
+      "description": "Asset status set to 'Under Maintenance' to align with issue status of 'Maintenance In Progress'."
+    },
+    {
+      "_id": "h_c3dwr9904",
+      "createdAt": "2026-07-15T07:30:04.145Z",
+      "asset": "a_2ylv67nb4",
+      "issue": "i_wh2nr2raz",
+      "actor": "Ali",
+      "action": "Issue Status Updated",
+      "description": "Issue #ISS-2026-21427 status was changed from 'Assigned' to 'Maintenance In Progress'."
+    },
+    {
+      "_id": "h_ntjl9hxdz",
+      "createdAt": "2026-07-15T08:08:47.388Z",
+      "asset": "a_qmrgp4veq",
+      "issue": null,
+      "actor": "System Admin",
+      "actorRole": "admin",
+      "action": "Asset Created",
+      "description": "Asset Main Water Booster Pump (Code: AST-2026-FC1GJ1) was registered successfully."
+    },
+    {
+      "_id": "h_opufdujxi",
+      "createdAt": "2026-07-15T08:09:29.509Z",
+      "asset": "a_qmrgp4veq",
+      "issue": null,
+      "actor": "System Admin",
+      "actorRole": "admin",
+      "action": "Status Updated",
+      "description": "Asset status transitioned from 'Operational' to 'Issue Reported'."
+    },
+    {
+      "_id": "h_b4x4xt8kj",
+      "createdAt": "2026-07-15T08:09:29.513Z",
+      "asset": "a_qmrgp4veq",
+      "issue": null,
+      "actor": "System Admin",
+      "actorRole": "admin",
+      "action": "Asset Updated",
+      "description": "Asset attributes were updated by administrator."
+    },
+    {
+      "_id": "h_hf0v9arts",
+      "createdAt": "2026-07-15T08:12:27.970Z",
+      "asset": "a_qmrgp4veq",
+      "issue": "i_zmoiiwq1i",
+      "actor": "Nicola",
+      "actorRole": "public",
+      "action": "Issue Reported",
+      "description": "Issue #ISS-2026-75911 reported: \"Water Ingress / Overhead Leak in Basement Pump Room\" (Priority: medium)."
+    },
+    {
+      "_id": "h_5kqkjtdbq",
+      "createdAt": "2026-07-15T08:12:27.972Z",
+      "asset": "a_qmrgp4veq",
+      "issue": "i_zmoiiwq1i",
+      "actor": "System Auto",
+      "actorRole": "system",
+      "action": "Asset Status Auto-Updated",
+      "description": "Asset status set to 'Issue Reported' due to reported issue."
+    },
+    {
+      "_id": "h_11i9g3qal",
+      "createdAt": "2026-07-15T08:13:20.450Z",
+      "asset": "a_qmrgp4veq",
+      "issue": null,
+      "actor": "System Admin",
+      "actorRole": "admin",
+      "action": "Asset Updated",
+      "description": "Asset attributes were updated by administrator."
+    },
+    {
+      "_id": "h_bj2prhw0d",
+      "createdAt": "2026-07-15T08:16:58.039Z",
+      "asset": "a_zdduqpr8s",
+      "issue": null,
+      "actor": "System Admin",
+      "actorRole": "admin",
+      "action": "Asset Created",
+      "description": "Asset Core Network Switch - Cisco Catalyst 9300 (Code: AST-2026-D695SS) was registered successfully."
+    },
+    {
+      "_id": "h_f21ezv8vt",
+      "createdAt": "2026-07-15T08:17:44.020Z",
+      "asset": "a_zdduqpr8s",
+      "issue": null,
+      "actor": "System Admin",
+      "actorRole": "admin",
+      "action": "Asset Updated",
+      "description": "Asset attributes were updated by administrator."
+    },
+    {
+      "_id": "h_dpcjwl8p2",
+      "createdAt": "2026-07-15T08:19:19.145Z",
+      "asset": "a_zdduqpr8s",
+      "issue": "i_bo3lnl579",
+      "actor": "from earth",
+      "actorRole": "public",
+      "action": "Issue Reported",
+      "description": "Issue #ISS-2026-91338 reported: \"Core Network Switch Intermittent Connectivity & Amber Warning Status\" (Priority: high)."
+    },
+    {
+      "_id": "h_td8ldg13c",
+      "createdAt": "2026-07-15T08:19:19.147Z",
+      "asset": "a_zdduqpr8s",
+      "issue": "i_bo3lnl579",
+      "actor": "System Auto",
+      "actorRole": "system",
+      "action": "Asset Status Auto-Updated",
+      "description": "Asset status set to 'Issue Reported' due to reported issue."
+    },
+    {
+      "_id": "h_7twzr8d12",
+      "createdAt": "2026-07-15T08:46:29.318Z",
+      "asset": "a_zdduqpr8s",
+      "issue": "i_bo3lnl579",
+      "actor": "System Admin",
+      "actorRole": "admin",
+      "action": "Technician Assigned",
+      "description": "Issue #ISS-2026-91338 assigned to technician: Saad."
+    },
+    {
+      "_id": "h_ytstlkskl",
+      "createdAt": "2026-07-15T08:46:36.066Z",
+      "asset": "a_qmrgp4veq",
+      "issue": "i_zmoiiwq1i",
+      "actor": "System Admin",
+      "actorRole": "admin",
+      "action": "Technician Assigned",
+      "description": "Issue #ISS-2026-75911 assigned to technician: Aliyan."
+    },
+    {
+      "_id": "h_9tlwryb1o",
+      "createdAt": "2026-07-15T09:25:17.022Z",
+      "asset": "a_2ylv67nb4",
+      "issue": null,
+      "actor": "System Admin",
+      "actorRole": "admin",
+      "action": "Status Updated",
+      "description": "Asset status transitioned from 'Under Maintenance' to 'Operational'."
+    },
+    {
+      "_id": "h_90w7e35zc",
+      "createdAt": "2026-07-15T09:25:17.027Z",
+      "asset": "a_2ylv67nb4",
+      "issue": null,
+      "actor": "System Admin",
+      "actorRole": "admin",
+      "action": "Asset Updated",
+      "description": "Asset attributes were updated by administrator."
+    }
+  ]
+}
