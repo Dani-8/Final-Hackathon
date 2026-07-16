@@ -43,7 +43,6 @@ export function CreateAssetPage() {
                 </div>
             </div>
 
-
             <AssetCreationForm
                 name={name}
                 setName={setName}
@@ -53,13 +52,6 @@ export function CreateAssetPage() {
                 setLocation={setLocation}
                 condition={condition}
                 setCondition={setCondition}
-                assignedTechnician={assignedTechnician}
-                setAssignedTechnician={setAssignedTechnician}
-                lastServiceDate={lastServiceDate}
-                setLastServiceDate={setLastServiceDate}
-                nextServiceDate={nextServiceDate}
-                setNextServiceDate={setNextServiceDate}
-                technicians={technicians}
                 loading={loading}
                 error={error}
                 handleSubmit={handleSubmit}

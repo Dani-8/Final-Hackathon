@@ -1,5 +1,5 @@
 import React from 'react';
-import { CheckCircle2, Wrench, MapPin, Calendar, User, Tag, Sliders } from 'lucide-react';
+import { CheckCircle2, Wrench, MapPin, Tag, Sliders } from 'lucide-react';
 
 export function AssetCreationForm({
     name,
@@ -10,13 +10,6 @@ export function AssetCreationForm({
     setLocation,
     condition,
     setCondition,
-    assignedTechnician,
-    setAssignedTechnician,
-    lastServiceDate,
-    setLastServiceDate,
-    nextServiceDate,
-    setNextServiceDate,
-    technicians,
     loading,
     error,
     handleSubmit,
@@ -126,77 +119,6 @@ export function AssetCreationForm({
                         </div>
                     </div>
                 </div>
-
-                {/* Section 2: Assignment & Service Dates */}
-                <div className="space-y-6 pt-2">
-                    <div className="flex items-center gap-2 pb-2 border-b border-slate-100">
-                        <User className="w-5 h-5 text-indigo-500" />
-                        <h2 className="text-md font-bold text-slate-800 uppercase tracking-wide font-display">Ownership & Maintenance</h2>
-                    </div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div className="md:col-span-2">
-                            <label htmlFor="assigned-technician" className="block text-xs font-bold text-slate-600 uppercase tracking-wider">
-                                Assigned Technician
-                            </label>
-                            <div className="mt-1.5 relative rounded-lg shadow-sm">
-                                <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                    <User className="h-4 w-4 text-slate-400" />
-                                </div>
-                                <select
-                                    id="assigned-technician"
-                                    value={assignedTechnician}
-                                    onChange={(e) => setAssignedTechnician(e.target.value)}
-                                    className="block w-full pl-10 pr-3.5 py-2.5 border border-slate-300 rounded-xl bg-white focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 text-sm font-semibold text-slate-700"
-                                >
-                                    <option value="">No technician assigned yet</option>
-                                    {technicians.map((tech) => (
-                                        <option key={tech._id || tech.id} value={tech._id || tech.id}>
-                                            {tech.name} ({tech.email})
-                                        </option>
-                                    ))}
-                                </select>
-                            </div>
-                        </div>
-
-                        <div>
-                            <label htmlFor="last-service-date" className="block text-xs font-bold text-slate-600 uppercase tracking-wider">
-                                Last Service Date
-                            </label>
-                            <div className="mt-1.5 relative rounded-lg shadow-sm">
-                                <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                    <Calendar className="h-4 w-4 text-slate-400" />
-                                </div>
-                                <input
-                                    id="last-service-date"
-                                    type="date"
-                                    value={lastServiceDate}
-                                    onChange={(e) => setLastServiceDate(e.target.value)}
-                                    className="block w-full pl-10 pr-3.5 py-2.5 border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 text-sm font-semibold text-slate-700"
-                                />
-                            </div>
-                        </div>
-
-                        <div>
-                            <label htmlFor="next-service-date" className="block text-xs font-bold text-slate-600 uppercase tracking-wider">
-                                Next Service Date
-                            </label>
-                            <div className="mt-1.5 relative rounded-lg shadow-sm">
-                                <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                    <Calendar className="h-4 w-4 text-slate-400" />
-                                </div>
-                                <input
-                                    id="next-service-date"
-                                    type="date"
-                                    value={nextServiceDate}
-                                    onChange={(e) => setNextServiceDate(e.target.value)}
-                                    className="block w-full pl-10 pr-3.5 py-2.5 border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 text-sm font-semibold text-slate-700"
-                                />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
 
                 {/* Actions */}
                 <div className="border-t border-slate-100 pt-6 flex justify-end gap-3">
