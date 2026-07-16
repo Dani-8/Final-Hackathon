@@ -6,6 +6,7 @@ export function IssueAssignmentModal({
     selectedTechId,
     setSelectedTechId,
     technicians,
+    allIssues = [],
     assignLoading,
     handleAssign,
 }) {
@@ -27,12 +28,22 @@ export function IssueAssignmentModal({
                             className="block w-full py-2 px-3 border border-slate-300 rounded-lg bg-white text-sm"
                         >
                             <option value="">-- Choose Staff member --</option>
-                            {technicians.map(tech => (
-                                <option key={tech._id} value={tech._id}>{tech.name}</option>
-                            ))}
+
+                            {technicians.map(tech => {
+                                const techId = tech._id || tech.id;
+                                const activeCount = allIssues.filter(issue => {
+                                    const assignedId = issue.assignedTechnician?._id || issue.assignedTechnician?.id || issue.assignedTechnician;
+                                    return String(assignedId) === String(techId) && !['Resolved', 'Closed'].includes(issue.status);
+                                }).length;
+
+                                return (
+                                    <option key={techId} value={techId}>
+                                        {tech.name} ({activeCount} active tasks) — {tech.specialty || 'General'}
+                                    </option>
+                                );
+                            })}
                         </select>
                     </div>
-
 
                     <div className="flex justify-end gap-2 border-t border-slate-100 pt-4 mt-6">
                         <button
@@ -45,7 +56,7 @@ export function IssueAssignmentModal({
                         >
                             Close
                         </button>
-
+                        
                         <button
                             id="confirm-dispatch-btn"
                             type="submit"
