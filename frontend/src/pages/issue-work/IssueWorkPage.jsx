@@ -8,12 +8,30 @@ import { SafeInspectionsList } from './components/SafeInspectionsList.jsx';
 
 export function IssueWorkPage() {
     const {
-        id, navigate, issue, loading, error, status, actionTaken, setActionTaken, partsCost, setPartsCost, 
-        hoursSpent, setHoursSpent, postMaintenanceAssetStatus, setPostMaintenanceAssetStatus, afterPhotoUrl, 
-        setAfterPhotoUrl, uploadLoading, submitLoading, handleStatusChange, handlePhotoUpload, handleSubmitReport
+        id,
+        navigate,
+        issue,
+        loading,
+        error,
+        status,
+        actionTaken,
+        setActionTaken,
+        partsCost,
+        setPartsCost,
+        hoursSpent,
+        setHoursSpent,
+        postMaintenanceAssetStatus,
+        setPostMaintenanceAssetStatus,
+        afterPhotoUrl,
+        setAfterPhotoUrl,
+        uploadLoading,
+        submitLoading,
+        handleStatusChange,
+        handleCheckToggle,
+        handlePhotoUpload,
+        handleSubmitReport,
     } = useIssueWork();
 
-    
     if (loading) {
         return (
             <div className="flex items-center justify-center py-20">
@@ -98,7 +116,7 @@ export function IssueWorkPage() {
                 </div>
 
                 {/* Right side helper info column */}
-                <SafeInspectionsList issue={issue} />
+                <SafeInspectionsList issue={issue} onCheckToggle={handleCheckToggle} />
             </div>
         </div>
     );

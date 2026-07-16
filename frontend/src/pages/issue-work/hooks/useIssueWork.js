@@ -23,13 +23,10 @@ export function useIssueWork() {
     const [uploadLoading, setUploadLoading] = useState(false);
     const [submitLoading, setSubmitLoading] = useState(false);
 
-
     async function loadIssueDetails() {
         setLoading(true);
-
         try {
             const data = await issueService.getById(id);
-
             setIssue(data);
             setStatus(data.status);
             setPostMaintenanceAssetStatus(data.asset?.status || 'Operational');
@@ -44,14 +41,11 @@ export function useIssueWork() {
         loadIssueDetails();
     }, [id]);
 
-
     const handleStatusChange = async (newStatus) => {
         setError('');
-
         try {
             await issueService.updateStatus(id, newStatus);
             setStatus(newStatus);
-
             const updated = await issueService.getById(id);
             setIssue(updated);
         } catch (err) {
@@ -59,6 +53,30 @@ export function useIssueWork() {
         }
     };
 
+    const handleCheckToggle = async (checkString) => {
+        if (!issue) return;
+        const currentCompleted = issue.completedChecks || [];
+        let updatedCompleted;
+        if (currentCompleted.includes(checkString)) {
+            updatedCompleted = currentCompleted.filter(c => c !== checkString);
+        } else {
+            updatedCompleted = [...currentCompleted, checkString];
+        }
+
+        try {
+            setIssue(prev => ({
+                ...prev,
+                completedChecks: updatedCompleted
+            }));
+            await issueService.updateChecks(id, updatedCompleted);
+        } catch (err) {
+            setError(err.message || 'Failed to update checklist item.');
+            setIssue(prev => ({
+                ...prev,
+                completedChecks: currentCompleted
+            }));
+        }
+    };
 
     const handlePhotoUpload = async (e) => {
         const file = e.target.files[0];
@@ -72,7 +90,6 @@ export function useIssueWork() {
             formData.append('evidence', file);
 
             const res = await uploadRequest('/uploads/evidence', formData);
-
             if (res.success && res.data.url) {
                 setAfterPhotoUrl(res.data.url);
             }
@@ -82,7 +99,6 @@ export function useIssueWork() {
             setUploadLoading(false);
         }
     };
-
 
     const handleSubmitReport = async (e) => {
         e.preventDefault();
@@ -110,12 +126,30 @@ export function useIssueWork() {
             setSubmitLoading(false);
         }
     };
-    
 
     return {
-        id, navigate, issue, loading, error, status, actionTaken, setActionTaken, partsCost, setPartsCost,
-        hoursSpent, setHoursSpent, postMaintenanceAssetStatus, setPostMaintenanceAssetStatus,
-        afterPhotoUrl, setAfterPhotoUrl, uploadLoading, submitLoading,
-        handleStatusChange, handlePhotoUpload, handleSubmitReport
+        id,
+        navigate,
+        issue,
+        loading,
+        error,
+        setError,
+        status,
+        actionTaken,
+        setActionTaken,
+        partsCost,
+        setPartsCost,
+        hoursSpent,
+        setHoursSpent,
+        postMaintenanceAssetStatus,
+        setPostMaintenanceAssetStatus,
+        afterPhotoUrl,
+        setAfterPhotoUrl,
+        uploadLoading,
+        submitLoading,
+        handleStatusChange,
+        handleCheckToggle,
+        handlePhotoUpload,
+        handleSubmitReport,
     };
 }
