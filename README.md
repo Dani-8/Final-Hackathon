@@ -62,6 +62,11 @@ CLOUDINARY_CLOUD_NAME=YOUR_CLOUDINARY_NAME
 CLOUDINARY_API_KEY=YOUR_CLOUDINARY_KEY
 CLOUDINARY_API_SECRET=YOUR_CLOUDINARY_SECRET
 APP_URL=http://localhost:3000
+
+# OR
+
+# Make sure APP_URL is your LIVE Frontend URL in production!
+# APP_URL=https://maintain-iq-final-hackathon.vercel.app
 ```
 *(Check `backend/.env.example` for the full list of required variables!)*
 
