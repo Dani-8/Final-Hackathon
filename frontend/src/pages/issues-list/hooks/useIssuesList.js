@@ -1,10 +1,13 @@
 import { useState, useEffect } from 'react';
 import { issueService } from '../../../services/issueService.js';
+import { categoryService } from '../../../services/categoryService.js';
 import { request } from '../../../services/api.js';
 
 export function useIssuesList() {
     const [issues, setIssues] = useState([]);
+    const [allIssues, setAllIssues] = useState([]);
     const [technicians, setTechnicians] = useState([]);
+    const [categories, setCategories] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState('');
 
@@ -18,13 +21,10 @@ export function useIssuesList() {
     const [selectedTechId, setSelectedTechId] = useState('');
     const [assignLoading, setAssignLoading] = useState(false);
 
-    
     async function loadIssues() {
-        setLoading(true)
-
+        setLoading(true);
         try {
             const params = {};
-
             if (status) params.status = status;
             if (priority) params.priority = priority;
             if (category) params.category = category;
@@ -40,14 +40,18 @@ export function useIssuesList() {
 
     async function loadTechnicians() {
         try {
-            const res = await request('/users/technicians')
-
+            const res = await request('/users/technicians');
             setTechnicians(res.data || []);
+
+            const issuesRes = await issueService.getAll();
+            setAllIssues(issuesRes || []);
+
+            const categoriesRes = await categoryService.getAll();
+            setCategories(categoriesRes || []);
         } catch (err) {
-            console.warn('Failed to load technician list:', err.message);
+            console.warn('Failed to load technician list, issues or categories:', err.message);
         }
     }
-
 
     useEffect(() => {
         loadIssues();
@@ -56,7 +60,6 @@ export function useIssuesList() {
     useEffect(() => {
         loadTechnicians();
     }, []);
-
 
     const handleAssign = async (e) => {
         e.preventDefault();
@@ -67,7 +70,6 @@ export function useIssuesList() {
 
         try {
             await issueService.assign(assigningIssue._id, selectedTechId);
-
             setAssigningIssue(null);
             setSelectedTechId('');
             loadIssues();
@@ -78,9 +80,25 @@ export function useIssuesList() {
         }
     };
 
-
     return {
-        issues, loading, error, status, setStatus, priority, setPriority, category, setCategory,
-        assigningIssue, setAssigningIssue, selectedTechId, setSelectedTechId, technicians, assignLoading, handleAssign,
+        issues,
+        allIssues,
+        technicians,
+        categories,
+        loading,
+        error,
+        setError,
+        status,
+        setStatus,
+        priority,
+        setPriority,
+        category,
+        setCategory,
+        assigningIssue,
+        setAssigningIssue,
+        selectedTechId,
+        setSelectedTechId,
+        assignLoading,
+        handleAssign,
     };
 }

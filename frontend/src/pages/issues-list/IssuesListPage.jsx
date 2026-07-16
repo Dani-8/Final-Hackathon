@@ -7,11 +7,26 @@ import { IssueAssignmentModal } from './components/IssueAssignmentModal.jsx';
 
 export function IssuesListPage() {
     const {
-        issues, loading, error, status, setStatus, priority, setPriority, category, setCategory,
-        assigningIssue, setAssigningIssue, selectedTechId, setSelectedTechId, technicians, assignLoading, handleAssign
+        issues,
+        allIssues,
+        technicians,
+        categories,
+        loading,
+        error,
+        status,
+        setStatus,
+        priority,
+        setPriority,
+        category,
+        setCategory,
+        assigningIssue,
+        setAssigningIssue,
+        selectedTechId,
+        setSelectedTechId,
+        assignLoading,
+        handleAssign,
     } = useIssuesList();
 
-    
     return (
         <div id="issues-list-page-root">
             {/* Page Header */}
@@ -26,7 +41,6 @@ export function IssuesListPage() {
                 </div>
             )}
 
-
             {/* Filter panel */}
             <IssueFilters
                 status={status}
@@ -35,8 +49,8 @@ export function IssuesListPage() {
                 setPriority={setPriority}
                 category={category}
                 setCategory={setCategory}
+                categories={categories}
             />
-
 
             {/* Issues Table */}
             {loading ? (
@@ -56,7 +70,6 @@ export function IssuesListPage() {
                 />
             )}
 
-
             {/* Assignment Modal Popup */}
             {assigningIssue && (
                 <IssueAssignmentModal
@@ -65,6 +78,7 @@ export function IssuesListPage() {
                     selectedTechId={selectedTechId}
                     setSelectedTechId={setSelectedTechId}
                     technicians={technicians}
+                    allIssues={allIssues}
                     assignLoading={assignLoading}
                     handleAssign={handleAssign}
                 />
