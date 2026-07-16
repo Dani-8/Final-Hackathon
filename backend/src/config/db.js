@@ -4,10 +4,12 @@ import dns from 'dns';
 // Ensure Node.js prioritizes IPv4 over IPv6 and uses public DNS servers (8.8.8.8, 1.1.1.1)
 // to resolve SRV records properly for MongoDB Atlas connection.
 try {
-    if (dns.setDefaultResultOrder) {
-        dns.setDefaultResultOrder('ipv4first');
+    if (process.env.NODE_ENV !== 'production') {
+        if (dns.setDefaultResultOrder) {
+            dns.setDefaultResultOrder('ipv4first');
+        }
+        dns.setServers(["8.8.8.8", "1.1.1.1"]);
     }
-    dns.setServers(["8.8.8.8", "1.1.1.1"]);
 } catch (error) {
     console.warn("⚠️ DNS configuration warning:", error.message);
 }
@@ -23,9 +25,9 @@ export async function connectDB() {
     }
 
     try {
-        // Set a short timeout (3 seconds) so we don't hang if Mongo is unreachable
+        // Increased timeout (10 seconds) for Vercel Serverless cold starts
         await mongoose.connect(uri, {
-            serverSelectionTimeoutMS: 3000,
+            serverSelectionTimeoutMS: 10000,
         });
         console.log('✅ MongoDB connected successfully.');
         mongoConnected = true;

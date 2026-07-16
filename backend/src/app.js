@@ -20,8 +20,8 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Connect to Database immediately when app launches
-connectDB();
+// Connect to Database immediately when app launches (await fixes the Vercel race condition)
+await connectDB();
 
 // Serve local upload evidence files
 const uploadsPath = path.join(process.cwd(), 'app', 'backend', 'src', 'uploads');
