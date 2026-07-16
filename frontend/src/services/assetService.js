@@ -4,11 +4,13 @@ export const assetService = {
     getAll: async (params = {}) => {
         const query = new URLSearchParams(params).toString();
         const res = await request(`/assets?${query}`);
+        
         return res.data;
     },
 
     getById: async (id) => {
         const res = await request(`/assets/${id}`);
+        
         return res.data;
     },
 
@@ -17,6 +19,7 @@ export const assetService = {
             method: 'POST',
             body: JSON.stringify(assetData)
         });
+        
         return res.data;
     },
 
@@ -25,6 +28,7 @@ export const assetService = {
             method: 'PATCH',
             body: JSON.stringify(assetData)
         });
+        
         return res.data;
     },
 
@@ -32,21 +36,25 @@ export const assetService = {
         const res = await request(`/assets/${id}`, {
             method: 'DELETE'
         });
+        
         return res.data;
     },
 
     getPublicBySlug: async (slug) => {
         const res = await request(`/assets/public/${slug}`);
+        
         return res.data;
     },
 
     getPublicByCode: async (code) => {
         const res = await request(`/assets/public/code/${code}`);
+        
         return res.data;
     },
 
     getHistory: async (id) => {
         const res = await request(`/assets/${id}/history`);
+        
         return res.data;
     }
 };

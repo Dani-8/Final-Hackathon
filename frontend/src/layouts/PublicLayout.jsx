@@ -78,6 +78,7 @@ export function PublicLayout() {
                     {/* Column 2: Platform Links */}
                     <div className="md:col-span-3 space-y-3">
                         <h4 className="text-[10px] font-bold text-indigo-400 uppercase tracking-widest font-mono">Platform Navigation</h4>
+                        
                         <ul className="space-y-2 text-xs font-semibold text-slate-300">
                             <li>
                                 <Link to="/" className="hover:text-white transition-colors">Home Landing</Link>

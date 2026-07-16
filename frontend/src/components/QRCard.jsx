@@ -4,6 +4,7 @@ import { Copy, Download, ExternalLink, Check } from 'lucide-react'
 
 export function QRCard({ asset, id }) {
     const [copied, setCopied] = useState(false)
+
     if (!asset) return null
 
     const publicUrl = `${window.location.origin}/public/assets/${asset.publicUrlSlug}`
@@ -11,6 +12,7 @@ export function QRCard({ asset, id }) {
     const copyLink = async () => {
         try {
             await navigator.clipboard.writeText(publicUrl);
+            
             setCopied(true);
             setTimeout(() => setCopied(false), 2000);
         } catch (err) {

@@ -92,6 +92,7 @@ export function useAdminDashboardData() {
             issueStatusCounts[st] = (issueStatusCounts[st] || 0) + 1;
         }
     });
+    
     const issueStatusData = Object.keys(issueStatusCounts).map(status => {
         let color = '#64748b'; // default slate-500
         if (['Open', 'Reported', 'Reopened'].includes(status)) color = '#0f766e'; // teal-dark
@@ -100,6 +101,7 @@ export function useAdminDashboardData() {
         if (status === 'Waiting for Parts') color = '#f59e0b'; // amber
         if (status === 'Resolved') color = '#10b981'; // emerald
         if (status === 'Closed') color = '#1e293b'; // slate-800
+
         return {
             name: status,
             value: issueStatusCounts[status],
@@ -107,9 +109,11 @@ export function useAdminDashboardData() {
         };
     }).filter(item => item.value > 0);
 
+    
     if (issueStatusData.length === 0) {
         issueStatusData.push({ name: 'No issues logged', value: 1, color: '#e2e8f0' });
     }
+
 
     return {
         assets,
