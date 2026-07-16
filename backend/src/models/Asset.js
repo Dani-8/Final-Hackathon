@@ -18,9 +18,8 @@ const assetSchema = new mongoose.Schema({
     updatedAt: { type: Date, default: Date.now }
 });
 
-assetSchema.pre('save', function (next) {
+assetSchema.pre('save', function () {
     this.updatedAt = new Date();
-    next();
 });
 
 const Asset = mongoose.models.Asset || mongoose.model('Asset', assetSchema);

@@ -24,9 +24,8 @@ const issueSchema = new mongoose.Schema({
     updatedAt: { type: Date, default: Date.now }
 });
 
-issueSchema.pre('save', function (next) {
+issueSchema.pre('save', function () {
     this.updatedAt = new Date();
-    next();
 });
 
 const Issue = mongoose.models.Issue || mongoose.model('Issue', issueSchema);

@@ -1,4 +1,5 @@
 import jwt from 'jsonwebtoken';
+import mongoose from 'mongoose';
 import { env } from '../config/env.js';
 import { isMongoConnected } from '../config/db.js';
 import User from '../models/User.js';
@@ -6,24 +7,22 @@ import { localDb } from '../services/localDbService.js';
 import { apiResponse } from '../utils/apiResponse.js';
 
 export async function authMiddleware(req, res, next) {
-    const authHeader = req.headers.authorization
-
+    const authHeader = req.headers.authorization;
     if (!authHeader || !authHeader.startsWith('Bearer ')) {
         return apiResponse.error(res, 'Authentication required. Access token missing.', 401);
     }
 
-    const token = authHeader.split(' ')[1]
-
+    const token = authHeader.split(' ')[1];
     try {
-        const decoded = jwt.verify(token, env.JWT_SECRET)
-
+        const decoded = jwt.verify(token, env.JWT_SECRET);
         let user = null;
 
         if (isMongoConnected()) {
-            user = await User.findById(decoded.id).select('-passwordHash');
+            if (mongoose.Types.ObjectId.isValid(decoded.id)) {
+                user = await User.findById(decoded.id).select('-passwordHash');
+            }
         } else {
-            const found = localDb.users.findById(decoded.id)
-
+            const found = localDb.users.findById(decoded.id);
             if (found) {
                 const { passwordHash, ...safeUser } = found;
                 user = safeUser;
@@ -41,6 +40,4 @@ export async function authMiddleware(req, res, next) {
         return apiResponse.error(res, 'Invalid or expired access token.', 401);
     }
 }
-
-
 export default authMiddleware;
