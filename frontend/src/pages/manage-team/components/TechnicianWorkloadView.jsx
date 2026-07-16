@@ -28,9 +28,11 @@ export function TechnicianWorkloadView({ users, issues }) {
                 <Briefcase className="w-5 h-5 text-indigo-600" />
                 <h2 className="font-display font-bold text-slate-900 text-lg">Technician Dispatch & Workload Metrics</h2>
             </div>
+
             <p className="text-xs text-slate-500 leading-normal max-w-2xl mb-4">
                 Review real-time task allocations and dispatch load indicators across all facility technicians to optimize work orders.
             </p>
+
 
             {technicians.length === 0 ? (
                 <div className="bg-slate-50 border border-slate-200 rounded-2xl p-8 text-center text-slate-500 text-xs font-semibold">
@@ -72,16 +74,19 @@ export function TechnicianWorkloadView({ users, issues }) {
                                                 <div className="w-10 h-10 rounded-xl bg-indigo-50 text-indigo-700 font-display font-black flex items-center justify-center text-sm border border-indigo-100">
                                                     {tech.name ? tech.name.split(' ').map(n => n[0]).join('').slice(0, 2).toUpperCase() : '??'}
                                                 </div>
+
                                                 <div>
                                                     <h3 className="font-display font-extrabold text-slate-800 text-sm leading-tight">{tech.name}</h3>
                                                     <span className="text-[10px] text-indigo-600 font-mono font-bold tracking-wide uppercase">{tech.specialty || 'Generalist'}</span>
                                                 </div>
                                             </div>
+
                                             <span className={`px-2.5 py-0.5 rounded-full text-[10px] font-bold border ${intensityClass}`}>
                                                 {intensityText}
                                             </span>
                                         </div>
                                     </div>
+
 
                                     {/* Summary counts */}
                                     <div className="grid grid-cols-2 divide-x divide-slate-100 border-b border-slate-100 py-3 bg-white text-center">
@@ -89,11 +94,13 @@ export function TechnicianWorkloadView({ users, issues }) {
                                             <span className="block text-[10px] uppercase font-bold text-slate-400 tracking-wider">Active Tickets</span>
                                             <span className="text-xl font-extrabold text-slate-800">{activeIssues.length}</span>
                                         </div>
+                                        
                                         <div>
                                             <span className="block text-[10px] uppercase font-bold text-slate-400 tracking-wider">Completed Logs</span>
                                             <span className="text-xl font-extrabold text-slate-500">{completedIssues.length}</span>
                                         </div>
                                     </div>
+
 
                                     {/* Active Issue List Accordion toggler */}
                                     {activeIssues.length > 0 && (
@@ -107,8 +114,8 @@ export function TechnicianWorkloadView({ users, issues }) {
                                             </button>
 
                                             {isExpanded && (
-                                                <div className="space-y-2 mt-3 animate-fade-in">
-                                                    {activeIssues.map((issue) => (
+                                                <div className="h-[200px] space-y-2 mt-3 animate-fade-in overflow-scroll">
+                                                    {activeIssues.map((issue ) => (
                                                         <div key={issue._id || issue.id} className="bg-white border border-slate-200/80 p-3 rounded-xl shadow-xs space-y-2">
                                                             <div className="flex items-start justify-between gap-2">
                                                                 <span className="font-mono text-[9px] font-bold text-slate-400">
@@ -118,13 +125,16 @@ export function TechnicianWorkloadView({ users, issues }) {
                                                                     {issue.priority}
                                                                 </span>
                                                             </div>
+
                                                             <p className="text-xs font-bold text-slate-700 line-clamp-1 leading-snug">
                                                                 {issue.title}
                                                             </p>
+
                                                             <div className="flex items-center justify-between text-[10px] text-slate-500 font-medium">
                                                                 <span className="text-slate-400 line-clamp-1 max-w-[120px]">
                                                                     Loc: {issue.asset?.location || 'Unknown'}
                                                                 </span>
+
                                                                 <span className="bg-indigo-50/70 border border-indigo-100/50 text-indigo-700 px-1.5 py-0.5 rounded text-[9px]">
                                                                     {issue.status}
                                                                 </span>

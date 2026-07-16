@@ -18,6 +18,7 @@ export function IssueAssignmentModal({
                     Select a qualified technician to address Issue <span className="font-bold text-slate-700 font-mono">#{assigningIssue.issueNumber}</span> on asset <span className="font-bold text-indigo-600">{assigningIssue.asset?.name}</span>.
                 </p>
 
+
                 <form onSubmit={handleAssign} className="space-y-4">
                     <div>
                         <label className="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1.5">Technician Assignment</label>
