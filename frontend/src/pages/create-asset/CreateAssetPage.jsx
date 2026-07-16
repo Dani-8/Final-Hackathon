@@ -10,6 +10,9 @@ export function CreateAssetPage() {
         setName,
         category,
         setCategory,
+        categories,
+        categoryLoading,
+        handleCreateCategory,
         location,
         setLocation,
         condition,
@@ -36,7 +39,6 @@ export function CreateAssetPage() {
                 >
                     <ArrowLeft className="w-4 h-4" />
                 </button>
-                
                 <div>
                     <h1 className="font-display font-extrabold text-3xl text-slate-900">Register Asset</h1>
                     <p className="text-sm text-slate-500 font-medium font-sans">Provision a new facility item, assign standard service parameters, and generate QR code identifiers.</p>
@@ -48,6 +50,9 @@ export function CreateAssetPage() {
                 setName={setName}
                 category={category}
                 setCategory={setCategory}
+                categories={categories}
+                categoryLoading={categoryLoading}
+                handleCreateCategory={handleCreateCategory}
                 location={location}
                 setLocation={setLocation}
                 condition={condition}
