@@ -2,15 +2,12 @@ import React, { useState } from 'react';
 import { Calendar, User, Wrench, AlertTriangle, CheckCircle, ChevronDown, ChevronUp, Briefcase } from 'lucide-react';
 
 export function TechnicianWorkloadView({ users, issues }) {
-    const [expandedTech, setExpandedTech] = useState({});
+    const [expandedTechId, setExpandedTechId] = useState(null);
 
     const technicians = users.filter(u => u.role === 'technician');
 
     const toggleExpand = (techId) => {
-        setExpandedTech(prev => ({
-            ...prev,
-            [techId]: !prev[techId]
-        }));
+        setExpandedTechId(prev => (prev === techId ? null : techId));
     };
 
     const getPriorityColor = (priority) => {
@@ -62,7 +59,7 @@ export function TechnicianWorkloadView({ users, issues }) {
                             intensityClass = 'bg-rose-50 text-rose-800 border-rose-200/60';
                         }
 
-                        const isExpanded = !!expandedTech[techId];
+                        const isExpanded = expandedTechId === techId;
 
                         return (
                             <div key={techId} className="bg-white border border-slate-200/95 rounded-2xl shadow-sm hover:shadow-md transition-all overflow-hidden flex flex-col justify-between">
