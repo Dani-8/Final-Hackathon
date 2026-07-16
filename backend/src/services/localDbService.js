@@ -1,10 +1,12 @@
 import fs from 'fs';
 import path from 'path';
+import os from 'os';
 import { fileURLToPath } from 'url';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const MOCK_DB_FILE = path.join(__dirname, '..', 'uploads', 'mock_db.json');
+const MOCK_DB_FILE = path.join(os.tmpdir(), 'mock_db.json');
+
 
 // Initialize local memory store with default seed data
 let db = {
