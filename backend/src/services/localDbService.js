@@ -31,7 +31,15 @@ let db = {
   assets: [],
   issues: [],
   maintenanceRecords: [],
-  historyLogs: []
+  historyLogs: [],
+  categories: [
+    { _id: 'cat_1', name: 'HVAC', createdAt: new Date('2026-01-01T00:00:00Z') },
+    { _id: 'cat_2', name: 'Electrical', createdAt: new Date('2026-01-01T00:00:00Z') },
+    { _id: 'cat_3', name: 'Plumbing', createdAt: new Date('2026-01-01T00:00:00Z') },
+    { _id: 'cat_4', name: 'Fire Safety', createdAt: new Date('2026-01-01T00:00:00Z') },
+    { _id: 'cat_5', name: 'Machinery', createdAt: new Date('2026-01-01T00:00:00Z') },
+    { _id: 'cat_6', name: 'IT Infrastructure', createdAt: new Date('2026-01-01T00:00:00Z') }
+  ]
 };
 
 function ensureDirExists(filePath) {
@@ -54,7 +62,8 @@ function loadDB() {
           assets: parsed.assets || db.assets,
           issues: parsed.issues || db.issues,
           maintenanceRecords: parsed.maintenanceRecords || db.maintenanceRecords,
-          historyLogs: parsed.historyLogs || db.historyLogs
+          historyLogs: parsed.historyLogs || db.historyLogs,
+          categories: parsed.categories || db.categories
         };
       }
     } else {
@@ -212,6 +221,7 @@ export const localDb = {
         assignedTechnician: null,
         evidenceUrls: [],
         aiSuggested: data.aiSuggested || { title: '', category: '', priority: '', causes: [], checks: [] },
+        completedChecks: data.completedChecks || [],
         aiFieldsEdited: data.aiFieldsEdited || false,
         createdAt: new Date(),
         updatedAt: new Date(),
@@ -276,6 +286,37 @@ export const localDb = {
       db.historyLogs.push(newLog);
       saveDB();
       return newLog;
+    }
+  },
+
+  categories: {
+    find: (filter = {}) => {
+      loadDB();
+      return db.categories.filter(item => {
+        for (let key in filter) {
+          if (item[key] !== filter[key]) return false;
+        }
+        return true;
+      });
+    },
+    findOne: (filter = {}) => {
+      loadDB();
+      return db.categories.find(item => {
+        for (let key in filter) {
+          if (item[key] !== filter[key]) return false;
+        }
+        return true;
+      }) || null;
+    },
+    create: (data) => {
+      const newCategory = {
+        _id: 'cat_' + Math.random().toString(36).substr(2, 9),
+        createdAt: new Date(),
+        ...data
+      };
+      db.categories.push(newCategory);
+      saveDB();
+      return newCategory;
     }
   }
 };
