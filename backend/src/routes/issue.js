@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { createIssue, getAllIssues, getIssueById, assignTechnician, updateIssueStatus, getPublicIssueStatusByNumber } from '../controllers/issue.js';
+import { createIssue, getAllIssues, getIssueById, assignTechnician, updateIssueStatus, getPublicIssueStatusByNumber, updateIssueChecks } from '../controllers/issue.js';
 import { createMaintenanceRecord } from '../controllers/maintenance.js';
 import { authMiddleware } from '../middleware/authMiddleware.js';
 import { roleMiddleware } from '../middleware/roleMiddleware.js';
@@ -18,6 +18,7 @@ router.patch('/:id/assign', authMiddleware, roleMiddleware(['admin']), assignTec
 // Admin & Technician routes
 router.get('/:id', authMiddleware, roleMiddleware(['admin', 'technician']), getIssueById);
 router.patch('/:id/status', authMiddleware, roleMiddleware(['admin', 'technician']), updateIssueStatus);
+router.patch('/:id/checks', authMiddleware, roleMiddleware(['admin', 'technician']), updateIssueChecks);
 
 // Technician-only maintenance completion
 router.post('/:id/maintenance', authMiddleware, roleMiddleware(['technician', 'admin']), createMaintenanceRecord);
